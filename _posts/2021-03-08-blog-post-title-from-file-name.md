@@ -22,7 +22,7 @@ FROM dbo.SomeTable s
 #### Some PowerShell Code
 
 ```powershell
-Write-Host "This is a powershell Code block";
+Write-Host "This is a concurrency Code block";
 
 # There are many other languages you can use, but the style has to be loaded first
 
