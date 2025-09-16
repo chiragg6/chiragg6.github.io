@@ -1,1 +1,1 @@
-Software Engineer, here i push my understanding on Go Concurrency & Cloud Native
+Software Engineer | Documenting my journey in Go Concurrency & Cloud Native
