@@ -1,13 +1,23 @@
 ## Concurrency
-Due to a plugin called `jekyll-titles-from-headings` which is supported by GitHub Pages by default. The above header (in the markdown file) will be automatically used as the pages title.
-
-If the file does not start with a header, then the post title will be derived from the filename.
-
-This is a sample blog post. You can talk about all sorts of fun things here.
+Concurrency is a core aspect of modern software development, enabling programs to handle multiple tasks simultaneously. In Go, concurrency is implemented through goroutines and channels, offering a distinct approach compared to traditional thread-based models. This article introduces the concept of concurrency in Go, laying the groundwork for understanding its unique features and capabilities.
 
 ---
 
-### Concurrency
+#### Concurrency Basics
+Goroutines
+Channels
+Pipelines
+Time
+Context
+Summary
+
+#### Synchronization
+Wait Groups
+Data races
+Race conditions
+Semaphores
+Signaling
+Atomics
 
 #### Some T-SQL Code
 
