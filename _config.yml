@@ -1,42 +1,57 @@
 title: "Blogs"
 author: "Chirag Gupta"
-# description: "Golang & Cloud-Native" # This will show up in places like twitter, linkedin, etc, if you share your sites url as a post.
+description: "Golang & Cloud-Native"   # show on social previews (Twitter/LinkedIn)
 
-# Email / Social media user names used by the minima theme:
-# All of these are optional and can be removed or commented out
+# URL settings - choose depending on user-site vs project-site:
+url: "https://chiragg6.github.io"      # <-- your user site
+# baseurl: "/my-tech-blogs"            # <-- uncomment if this is a project site
+
+# Contact / social (minima reads these)
 email: "chiragg6@gmail.com"
-#twitter_username: "twitteruser"
+twitter_username: ""                   # without @ (optional)
 github_username: "chiragg6"
-linkedin_username: "https://www.linkedin.com/in/chirag-gupta93/"
-#facebook_username: username
-#flickr_username: username
-#instagram_username: username
-#pinterest_username: username
-#youtube_username: username
-#googleplus_username: +username
+linkedin_username: "chirag-gupta93"    # username preferred (not full URL)
 
-#########################################################################################
-######### Nothing below needs to be changed (unless you know what you're doing) #########
-#########################################################################################
-theme: "minima"
+theme: minima
 
-# rss: rss
-
+# Markdown / syntax highlighting
+markdown: kramdown
 kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
   syntax_highlighter_opts:
-    disable: true
-    
+    line_numbers: false
+
+# Plugins allowed on GitHub Pages
 plugins:
   - jekyll-feed
   - jekyll-sitemap
 
+# If you prefer titles taken from the first heading in each post
 titles_from_headings:
   strip_title: true
   collections: true
 
+# Permalink format (pretty URLs)
+permalink: /:year/:month/:day/:title/
+
+# Defaults for posts
 defaults:
   - scope:
       path: ""
       type: post
     values:
+      layout: post
       tags: Other
+
+# Files/dirs to exclude from the build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Optional: enable pagination (requires jekyll-paginate plugin)
+# paginate: 10
+# paginate_path: "/page:num/"
