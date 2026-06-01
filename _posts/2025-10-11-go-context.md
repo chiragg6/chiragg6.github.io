@@ -17,6 +17,7 @@ In this post we walk through how `context` works under the hood, the API surface
 ---
 
 # Context Interface
+```go
 
 type Context interface {
   Deadline() (deadline time.Time, ok bool)
@@ -46,6 +47,17 @@ func (*emptyCtx) Err() error {
 func (*emptyCtx) Value(key interface{}) interface{} {
     return nil
 }
+
+func (*emptyCtx) String() string {
+    switch e {
+        case background:
+            return "context.Background"
+        case todo: 
+            return "context.ToDo"
+    }
+        return "unknown empty Context"
+}
+```
 
 
 ## Why Context Exists
