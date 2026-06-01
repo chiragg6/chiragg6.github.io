@@ -16,6 +16,15 @@ In this post we walk through how `context` works under the hood, the API surface
 
 ---
 
+# Context Interface
+
+type Context interface {
+  Deadline() (deadline time.Time, ok bool)
+  Done() <-chan struct{}
+  Err() error
+  Value(key interface{}) interface{}
+}
+
 ## Why Context Exists
 
 Before `context` landed in Go 1.7, teams invented ad hoc cancellation: boolean flags, `done` channels, or closing connections and hoping goroutines noticed. That does not compose. A handler might spawn five goroutines; when the client disconnects, which flag do you flip?
