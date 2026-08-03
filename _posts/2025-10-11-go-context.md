@@ -16,50 +16,6 @@ In this post we walk through how `context` works under the hood, the API surface
 
 ---
 
-# Context Interface
-```go
-
-type Context interface {
-  Deadline() (deadline time.Time, ok bool)
-  Done() <-chan struct{}
-  Err() error
-  Value(key interface{}) interface{}
-}
-
-# Empty Context
-
-A context with no value, no deadline and is never cancelled. 
-
-type emptyCtx int
-
-func (*emptyCtx) Deadline() (dealine time.Time, ok bool) {
-    return
-}
-
-func (*emptyCtx) Done() <-chan struct{} {
-    return nil
-}
-
-func (*emptyCtx) Err() error {
-    return nil
-}
-
-func (*emptyCtx) Value(key interface{}) interface{} {
-    return nil
-}
-
-func (*emptyCtx) String() string {
-    switch e {
-        case background:
-            return "context.Background"
-        case todo: 
-            return "context.ToDo"
-    }
-        return "unknown empty Context"
-}
-```
-
-
 ## Why Context Exists
 
 Before `context` landed in Go 1.7, teams invented ad hoc cancellation: boolean flags, `done` channels, or closing connections and hoping goroutines noticed. That does not compose. A handler might spawn five goroutines; when the client disconnects, which flag do you flip?

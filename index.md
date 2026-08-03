@@ -1,1 +1,5 @@
+---
+layout: home
+---
+
 Software Engineer | Documenting my journey in Go Concurrency & Cloud Native

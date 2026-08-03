@@ -55,4 +55,35 @@ func main() {
     y := <-ch // receive
     fmt.Println(y)
 }
+```
+
+Here, the **send** on the channel happens-before the **receive**. The receive is guaranteed to see `x == 42`.
+
+### Example with `sync.Mutex`
+
+```go
+var mu sync.Mutex
+var x int
+
+func write() {
+    mu.Lock()
+    x = 42
+    mu.Unlock()
+}
+
+func read() {
+    mu.Lock()
+    _ = x
+    mu.Unlock()
+}
+```
+
+If `write()` completes before `read()` starts, the unlock in `write` happens-before the lock in `read`, so `read` observes `x == 42`.
+
 ---
+
+## Takeaways
+
+- Without synchronization, concurrent reads and writes have **no guarantees**.
+- Channels, mutexes, and atomics create **happens-before** edges you can rely on.
+- The memory model is the contract that makes Go concurrency predictable—design with it, not against it.
